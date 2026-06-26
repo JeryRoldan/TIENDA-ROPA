@@ -51,6 +51,27 @@ const modalDescription = document.querySelector("#modalDescription");
 const modalFeatures = document.querySelector("#modalFeatures");
 const closeButton = document.querySelector(".modal-close");
 const detailButtons = document.querySelectorAll(".detail-button");
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+const navItems = document.querySelectorAll(".nav-links a");
+
+function closeMenu() {
+  if (!menuToggle || !navLinks) return;
+
+  menuToggle.classList.remove("is-open");
+  navLinks.classList.remove("is-open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Abrir menu");
+}
+
+function toggleMenu() {
+  if (!menuToggle || !navLinks) return;
+
+  const isOpen = navLinks.classList.toggle("is-open");
+  menuToggle.classList.toggle("is-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menu" : "Abrir menu");
+}
 
 function openModal(productKey) {
   const product = products[productKey];
@@ -84,6 +105,12 @@ detailButtons.forEach((button) => {
   button.addEventListener("click", () => openModal(button.dataset.product));
 });
 
+menuToggle?.addEventListener("click", toggleMenu);
+
+navItems.forEach((item) => {
+  item.addEventListener("click", closeMenu);
+});
+
 closeButton.addEventListener("click", closeModal);
 
 modal.addEventListener("click", (event) => {
@@ -93,5 +120,9 @@ modal.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal.classList.contains("is-open")) {
     closeModal();
+  }
+
+  if (event.key === "Escape") {
+    closeMenu();
   }
 });
