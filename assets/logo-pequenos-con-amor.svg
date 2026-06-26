@@ -1,0 +1,58 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Pequeños con Amor</title>
+  <desc id="desc">Logo de ropa para bebes con body, gancho, corazones y hojas</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="62%">
+      <stop offset="0" stop-color="#fffdf8"/>
+      <stop offset="0.65" stop-color="#fbf3ec"/>
+      <stop offset="1" stop-color="#f5ece4"/>
+    </radialGradient>
+    <linearGradient id="warmLine" x1="205" y1="143" x2="665" y2="675" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c6a48a"/>
+      <stop offset="0.48" stop-color="#9e816f"/>
+      <stop offset="1" stop-color="#dac7b7"/>
+    </linearGradient>
+    <linearGradient id="softPink" x1="420" y1="333" x2="500" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#efc2bb"/>
+      <stop offset="1" stop-color="#d99b96"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="900" fill="url(#bg)"/>
+
+  <g stroke="url(#warmLine)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M379 492C305 470 251 402 251 321C251 222 331 142 430 142C529 142 609 222 609 321C609 337 607 352 603 367" stroke-width="8"/>
+    <path d="M428 196C428 178 440 166 456 166C474 166 487 179 487 197C487 216 474 229 456 232V259" stroke-width="5"/>
+    <path d="M365 287L412 260H498L548 287L582 347L541 370L523 334L530 474L489 518H423L382 474L390 334L371 370L331 347L365 287Z" fill="#fff5e7" fill-opacity="0.62" stroke-width="4"/>
+    <path d="M414 260C419 284 438 297 457 297C476 297 494 284 498 260" stroke-width="4"/>
+    <path d="M390 334C404 347 423 354 456 354C489 354 509 347 523 334" stroke-width="3" opacity="0.55"/>
+    <path d="M382 474C404 475 421 488 430 518" stroke-width="4" opacity="0.48"/>
+    <path d="M530 474C508 475 491 488 482 518" stroke-width="4" opacity="0.48"/>
+    <path d="M424 518C431 503 444 496 456 496C468 496 482 503 489 518" stroke-width="4"/>
+    <path d="M425 538H487" stroke-width="4"/>
+    <path d="M439 520C439 524 436 527 432 527C428 527 425 524 425 520C425 516 428 513 432 513C436 513 439 516 439 520Z" fill="#fff5e7" stroke-width="3"/>
+    <path d="M461 520C461 524 458 527 454 527C450 527 447 524 447 520C447 516 450 513 454 513C458 513 461 516 461 520Z" fill="#fff5e7" stroke-width="3"/>
+    <path d="M483 520C483 524 480 527 476 527C472 527 469 524 469 520C469 516 472 513 476 513C480 513 483 516 483 520Z" fill="#fff5e7" stroke-width="3"/>
+  </g>
+
+  <path d="M456 272C444 251 412 264 421 290C428 310 456 326 456 326C456 326 484 310 491 290C500 264 468 251 456 272Z" fill="url(#softPink)"/>
+  <path d="M456 405C444 384 412 397 421 423C428 443 456 459 456 459C456 459 484 443 491 423C500 397 468 384 456 405Z" fill="url(#softPink)"/>
+
+  <g stroke="#8b997f" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M523 535C596 502 641 446 669 374" stroke-width="6"/>
+    <path d="M611 469C635 462 662 467 684 484C659 494 631 495 611 469Z" fill="#8b997f" stroke-width="3"/>
+    <path d="M588 497C599 472 622 454 649 448C641 475 620 497 588 497Z" fill="#8b997f" stroke-width="3"/>
+    <path d="M640 418C653 392 675 373 699 363C703 392 688 422 660 439C653 443 646 436 640 418Z" fill="#8b997f" stroke-width="3"/>
+    <path d="M561 520C574 501 593 489 617 486C615 511 594 529 561 520Z" fill="#8b997f" stroke-width="3"/>
+  </g>
+
+  <path d="M686 511C677 495 653 505 660 525C665 540 686 552 686 552C686 552 707 540 712 525C719 505 695 495 686 511Z" fill="#e6a29c"/>
+  <path d="M720 595C714 584 697 591 702 606C705 617 720 625 720 625C720 625 735 617 738 606C743 591 726 584 720 595Z" fill="#e6a29c"/>
+  <path d="M456 728C450 717 433 724 438 739C441 750 456 758 456 758C456 758 471 750 474 739C479 724 462 717 456 728Z" fill="#e6a29c"/>
+
+  <text x="450" y="660" text-anchor="middle" fill="#8f7968" font-family="Georgia, 'Times New Roman', serif" font-size="80" letter-spacing="15">PEQUEÑOS</text>
+  <path d="M203 705H260" stroke="#d3beb1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M640 705H697" stroke="#d3beb1" stroke-width="4" stroke-linecap="round"/>
+  <text x="450" y="723" text-anchor="middle" fill="#d99892" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="700" letter-spacing="28">CON AMOR</text>
+  <text x="450" y="800" text-anchor="middle" fill="#8b997f" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="14">ROPA PARA BEBÉS</text>
+</svg>

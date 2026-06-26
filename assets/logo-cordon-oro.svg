@@ -1,0 +1,32 @@
+<svg width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Cordon de Oro</title>
+  <desc id="desc">Monograma dorado CO con aro de cordon</desc>
+  <defs>
+    <linearGradient id="gold" x1="82" y1="42" x2="237" y2="253" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff1ad"/>
+      <stop offset="0.22" stop-color="#d9a446"/>
+      <stop offset="0.5" stop-color="#946321"/>
+      <stop offset="0.75" stop-color="#f3cc68"/>
+      <stop offset="1" stop-color="#8a5618"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="104" y1="64" x2="230" y2="198" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff7c8"/>
+      <stop offset="1" stop-color="#c88c2e" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="shadow" x="38" y="26" width="246" height="260" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="320" height="320" rx="30" fill="#090807"/>
+  <g filter="url(#shadow)">
+    <path d="M207.4 77.5C189.9 61.9 167.8 55 145.8 58.5C123.8 62 104 75.7 91 96.6C69.4 131.4 76.9 177.2 108.6 202.8C140.3 228.5 186.5 224.8 213.8 194.5" stroke="url(#gold)" stroke-width="22" stroke-linecap="round"/>
+    <path d="M208 78L238 61L234.7 96.3" fill="url(#gold)"/>
+    <circle cx="166" cy="151" r="69" stroke="url(#gold)" stroke-width="18"/>
+    <circle cx="166" cy="151" r="69" stroke="#2b1805" stroke-width="4" stroke-dasharray="16 12" opacity="0.5"/>
+    <circle cx="166" cy="151" r="80" stroke="url(#shine)" stroke-width="5" opacity="0.9"/>
+    <path d="M123 224C136 210 151.2 210 164.5 224C177.8 210 193 210 206 224" stroke="url(#gold)" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M116 238L141 215" stroke="url(#gold)" stroke-width="12" stroke-linecap="round"/>
+    <path d="M213 238L188 215" stroke="url(#gold)" stroke-width="12" stroke-linecap="round"/>
+  </g>
+  <text x="160" y="286" text-anchor="middle" fill="url(#gold)" font-family="Georgia, 'Times New Roman', serif" font-size="28" letter-spacing="7">CORDON DE ORO</text>
+</svg>
