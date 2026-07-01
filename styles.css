@@ -69,9 +69,7 @@ a {
   flex: 0 0 auto;
   width: 46px;
   height: 46px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 8px 22px rgba(18, 13, 4, 0.18);
+  object-fit: contain;
 }
 
 .menu-toggle {
@@ -142,8 +140,7 @@ a {
   width: clamp(92px, 12vw, 138px);
   height: clamp(92px, 12vw, 138px);
   margin-bottom: 22px;
-  border-radius: 18px;
-  box-shadow: 0 18px 42px rgba(18, 13, 4, 0.16);
+  object-fit: contain;
 }
 
 .eyebrow {
