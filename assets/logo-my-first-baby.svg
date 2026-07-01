@@ -1,0 +1,41 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">MY FIRST BABY</title>
+  <desc id="desc">Logo lineal de una madre abrazando a su bebe</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="65%">
+      <stop offset="0" stop-color="#fffefd"/>
+      <stop offset="0.7" stop-color="#fbf5ef"/>
+      <stop offset="1" stop-color="#f4ebe4"/>
+    </radialGradient>
+    <linearGradient id="line" x1="250" y1="140" x2="690" y2="740" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6f5b53"/>
+      <stop offset="0.5" stop-color="#9b8478"/>
+      <stop offset="1" stop-color="#6f5b53"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="900" fill="url(#bg)"/>
+
+  <g stroke="url(#line)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M314 581C240 456 279 332 374 250C399 143 515 95 622 151C688 187 723 252 710 322"/>
+    <path d="M377 247C397 304 471 318 565 306C631 298 683 267 711 219"/>
+    <path d="M340 513C368 441 417 403 493 390C567 377 641 355 690 300"/>
+    <path d="M504 392C514 450 539 497 579 533"/>
+    <path d="M584 533C559 558 525 559 497 540"/>
+    <path d="M492 542C510 576 533 607 566 629"/>
+    <path d="M597 426C620 429 638 438 651 453"/>
+    <path d="M601 474C611 489 626 497 642 493"/>
+    <path d="M703 354C666 381 650 416 658 457C676 462 697 470 716 486C779 540 774 636 716 711C653 792 571 789 484 720"/>
+    <path d="M684 490C645 481 611 499 589 531C559 577 575 633 626 650C682 669 731 626 721 570"/>
+    <path d="M623 568C605 584 592 605 585 633"/>
+    <path d="M657 543C644 541 633 545 624 555"/>
+    <path d="M679 526C689 506 704 495 721 493"/>
+    <path d="M411 473C360 478 328 510 315 562C305 602 316 650 347 695C382 746 442 786 492 791C535 795 570 776 591 735"/>
+    <path d="M420 552C440 589 466 616 500 635"/>
+    <path d="M459 609C448 627 435 637 419 638"/>
+    <path d="M387 618C403 615 416 620 425 633"/>
+  </g>
+
+  <text x="450" y="820" text-anchor="middle" fill="#6f5b53" font-family="Georgia, 'Times New Roman', serif" font-size="62" letter-spacing="8">MY FIRST BABY</text>
+  <text x="450" y="860" text-anchor="middle" fill="#9b8478" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="6">ROPA PARA BEBES</text>
+</svg>
