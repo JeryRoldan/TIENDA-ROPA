@@ -38,6 +38,11 @@
         <a href="#calidad">Calidad</a>
         <a href="#contacto">Contacto</a>
       </nav>
+      <button class="cart-trigger" type="button" aria-label="Abrir carrito" aria-haspopup="dialog">
+        <span aria-hidden="true">🛒</span>
+        <span>Carrito</span>
+        <b class="cart-count" id="cartCount">0</b>
+      </button>
     </header>
 
     <main>
@@ -85,65 +90,42 @@
 
       <section class="catalog-section" id="catalogo">
         <div class="section-heading">
-          <p class="eyebrow">Modelos destacados</p>
+          <p class="eyebrow">Catálogo global</p>
           <h2>Ropita lista para cada etapa</h2>
+          <div class="catalog-explorer">
+            <label class="sr-only" for="catalogSearch">Buscar en el cat&aacute;logo</label>
+            <div class="catalog-search">
+              <span aria-hidden="true">⌕</span>
+              <input id="catalogSearch" type="search" placeholder="Buscar productos en el cat&aacute;logo" autocomplete="off" />
+            </div>
+            <div class="category-filters" id="categoryFilters" aria-label="Filtrar por categor&iacute;a"></div>
+            <p class="catalog-results" id="catalogResults" aria-live="polite"></p>
+          </div>
+          <p class="catalog-count">318 items disponibles</p>
+          <a class="pdf-button" href="assets/catalogo-global.pdf" download>
+            <img src="assets/pdf.png" alt="" aria-hidden="true" /> Descargar PDF
+          </a>
         </div>
 
-        <div class="product-grid">
-          <article class="product-card">
-            <div class="product-image">
-              <img src="assets/bebe-0-3-meses.png" alt="Conjunto para bebe de 0 a 3 meses" />
-            </div>
-            <div class="product-info">
-              <p class="product-tag">0 a 3 meses</p>
-              <h3>Set Primer Abrazo</h3>
-              <p>Body de algodon, gorrito y manoplas para recien nacido.</p>
-              <button class="detail-button" type="button" data-product="primer">
-                Ver caracteristicas
-              </button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="assets/bebe-3-6-meses.png" alt="Conjunto para bebe de 3 a 6 meses" />
-            </div>
-            <div class="product-info">
-              <p class="product-tag">3 a 6 meses</p>
-              <h3>Set Nube Suave</h3>
-              <p>Enterizo con pantalon, medias y broches de facil cambio.</p>
-              <button class="detail-button" type="button" data-product="nube">
-                Ver caracteristicas
-              </button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="assets/bebe-6-12-meses.png" alt="Conjunto para bebe de 6 a 12 meses" />
-            </div>
-            <div class="product-info">
-              <p class="product-tag">6 a 12 meses</p>
-              <h3>Set Pasitos</h3>
-              <p>Conjunto abrigador con cardigan, pantalon y botitas suaves.</p>
-              <button class="detail-button" type="button" data-product="pasitos">
-                Ver caracteristicas
-              </button>
-            </div>
-          </article>
-        </div>
+        <div class="product-grid" id="productGrid"></div>
       </section>
 
-      <section class="contact-band" id="contacto">
-        <div>
-          <p class="eyebrow">Pedidos y cotizaciones</p>
-          <h2>Elige la talla por meses y preparamos la ropita para tu bebe.</h2>
-        </div>
-        <a class="primary-button" href="https://wa.me/51904226429" target="_blank" rel="noreferrer">
-          Escribir por WhatsApp
-        </a>
-      </section>
     </main>
+
+    <footer class="site-footer" id="contacto">
+      <section class="footer-column">
+        <p class="footer-title">Cont&aacute;ctanos</p>
+        <p class="footer-label">Direcci&oacute;n</p>
+        <address>Jr. Ayacucho 857, s&oacute;tano<br />Tienda 120-S, Galer&iacute;a La Competidora<br />Lima, Per&uacute;</address>
+        <p class="footer-label">Tel&eacute;fono</p>
+        <a class="footer-link" href="tel:+51926289055">+51 926 289 055</a>
+      </section>
+      <section class="footer-column">
+        <p class="footer-title">S&iacute;guenos</p>
+        <a class="facebook-link" href="#" aria-label="Facebook de MY FIRST BABY" title="Facebook">f</a>
+      </section>
+      <p class="footer-copyright">&copy; 2026 My First Baby</p>
+    </footer>
 
     <div class="modal-backdrop" id="productModal" aria-hidden="true">
       <section
@@ -161,8 +143,26 @@
           <h2 id="modalTitle"></h2>
           <p id="modalDescription"></p>
           <ul id="modalFeatures"></ul>
+          <div class="modal-purchase">
+            <p class="modal-price" id="modalPrice"></p>
+            <button class="add-cart-button" id="modalAddCart" type="button">Añadir al carrito</button>
+          </div>
         </div>
       </section>
+    </div>
+
+    <div class="cart-backdrop" id="cartBackdrop" aria-hidden="true">
+      <aside class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+        <div class="cart-heading">
+          <div><p class="eyebrow">Tu pedido</p><h2 id="cartTitle">Carrito</h2></div>
+          <button class="cart-close" type="button" aria-label="Cerrar carrito">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-summary">
+          <p><span>Total</span><strong id="cartTotal">S/ 0.00</strong></p>
+          <a class="checkout-button" id="checkoutButton" href="https://wa.me/51904226429" target="_blank" rel="noreferrer">Finalizar pedido por WhatsApp</a>
+        </div>
+      </aside>
     </div>
 
     <a
@@ -180,6 +180,7 @@
       </svg>
     </a>
 
+    <script src="catalog-products.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
