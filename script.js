@@ -12,7 +12,6 @@ const closeButton = document.querySelector(".modal-close");
 const productGrid = document.querySelector("#productGrid");
 const catalogSearch = document.querySelector("#catalogSearch");
 const categoryFilters = document.querySelector("#categoryFilters");
-const catalogResults = document.querySelector("#catalogResults");
 const cartTrigger = document.querySelector(".cart-trigger");
 const cartBackdrop = document.querySelector("#cartBackdrop");
 const cartClose = document.querySelector(".cart-close");
@@ -36,7 +35,7 @@ function normalized(value) {
 function productCategory(product) {
   const text = normalized(`${product.title} ${product.description}`);
   if (/CAMINADOR|GIMNASIO|ESCALERA|CANGURO|CORRAL|MOVIL/.test(text)) return "Gimnasios y andadores";
-  if (/BIBERON|CHUPON|TOMATODO|BABERO|CUBIERTO|PLATO|VASO|CEPILLO.*BIBERON|EXTRACTOR|CALENTADOR/.test(text)) return "Alimentacion";
+  if (/BIBERON|CHUPON|TOMATODO|BABERO|CUBIERTO|PLATO|VASO|CEPILLO.*BIBERON|EXTRACTOR|CALENTADOR/.test(text)) return "Alimentaci\u00f3n";
   if (/ASPIRADOR|MORDEDOR|GORRO.*BANO|RODILLERA|LENTES|PEINE|COJIN|CASCO|PISO|PORTA PANUELO/.test(text)) return "Cuidado y seguridad";
   if (/MADERA|MONTESSORI|DIDACT|TABLERO|PUZZLE|PRESCHOOL|ROMPECABEZA|XILOFONO/.test(text)) return "Madera y didacticos";
   if (/ARNES|ZAPAMEDIA|GUANTE|MANOS Y PIES|BABY CARE|BOLSA RECOLECTORA|GEL|GOTERO/.test(text)) return "Ropa y accesorios";
@@ -44,7 +43,7 @@ function productCategory(product) {
 }
 
 window.catalogProducts.forEach((product) => { product.category = productCategory(product); });
-const categoryOrder = ["Todos", "Juguetes", "Gimnasios y andadores", "Alimentacion", "Cuidado y seguridad", "Madera y didacticos", "Ropa y accesorios"];
+const categoryOrder = ["Todos", "Juguetes", "Gimnasios y andadores", "Alimentaci\u00f3n", "Cuidado y seguridad", "Madera y didacticos", "Ropa y accesorios"];
 
 function renderCategoryFilters() {
   categoryFilters.innerHTML = categoryOrder.filter((category) => category === "Todos" || window.catalogProducts.some((product) => product.category === category)).map((category) => {
@@ -60,7 +59,6 @@ function renderProducts() {
     const matchesSearch = !query || normalized(`${product.title} ${product.description} ${product.number}`).includes(query);
     return matchesCategory && matchesSearch;
   });
-  catalogResults.textContent = `${visibleProducts.length} producto${visibleProducts.length === 1 ? "" : "s"} encontrado${visibleProducts.length === 1 ? "" : "s"}`;
   productGrid.innerHTML = visibleProducts.map((product) => `
     <article class="product-card">
       <div class="product-image"><img src="${product.image}" alt="${product.alt}" loading="lazy"></div>
