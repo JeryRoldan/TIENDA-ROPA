@@ -563,14 +563,15 @@ h1 {
 
 @media (max-width: 640px) {
   .site-header {
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 12px;
   }
 
   .brand {
-    flex: 1 1 0;
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
   }
 
   .brand span {
@@ -579,11 +580,15 @@ h1 {
 
   .menu-toggle {
     display: grid;
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .nav-links {
     display: grid;
     width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 2;
     max-height: 0;
     overflow: hidden;
     gap: 0;
@@ -596,8 +601,9 @@ h1 {
     transition: max-height 220ms ease, padding 220ms ease, opacity 180ms ease,
       border-width 180ms ease;
   }
-  .cart-trigger { padding: 9px 11px; }
+  .cart-trigger { position: fixed; top: 86px; right: 18px; z-index: 31; width: 52px; height: 52px; justify-content: center; padding: 0; border-radius: 50%; box-shadow: 0 10px 26px rgba(21, 18, 12, .2); }
   .cart-trigger > span:nth-child(2) { display: none; }
+  .cart-count { position: absolute; top: -4px; right: -4px; }
 
   .nav-links.is-open {
     max-height: 220px;
