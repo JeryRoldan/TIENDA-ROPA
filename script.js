@@ -12,6 +12,7 @@ const closeButton = document.querySelector(".modal-close");
 const productGrid = document.querySelector("#productGrid");
 const catalogSearch = document.querySelector("#catalogSearch");
 const categoryFilters = document.querySelector("#categoryFilters");
+const catalogCount = document.querySelector("#catalogCount");
 const cartTrigger = document.querySelector(".cart-trigger");
 const cartBackdrop = document.querySelector("#cartBackdrop");
 const cartClose = document.querySelector(".cart-close");
@@ -43,6 +44,7 @@ function productCategory(product) {
 }
 
 window.catalogProducts.forEach((product) => { product.category = productCategory(product); });
+catalogCount.textContent = `${window.catalogProducts.length} items disponibles`;
 const categoryOrder = ["Todos", "Juguetes", "Gimnasios y andadores", "Alimentaci\u00f3n", "Cuidado y seguridad", "Madera y didacticos", "Ropa y accesorios"];
 
 function renderCategoryFilters() {
