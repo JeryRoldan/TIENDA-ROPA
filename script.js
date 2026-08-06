@@ -33,19 +33,22 @@ function normalized(value) {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
 }
 
+const categoriesByProduct = {
+  "Alimentaci\u00f3n": [1, 10, 22, 23, 32, 34, 36, 37, 46, 48, 49, 50, 51, 52, 53, 65, 66, 67, 70],
+  "Lactancia": [3, 6, 7, 8, 28, 31, 56, 57, 58, 59],
+  "Paseo y seguridad": [9, 11, 15, 18, 27, 40, 42, 44, 47, 68],
+  "Ropa y accesorios": [4, 5, 17, 43],
+  "Higiene y cuidado": [21, 26, 45, 61],
+  "Juguetes y estimulaci\u00f3n": [2, 12, 13, 14, 16, 19, 20, 24, 25, 29, 30, 33, 35, 38, 39, 41, 54, 55, 60, 62, 63, 64, 69],
+};
+
 function productCategory(product) {
-  const text = normalized(`${product.title} ${product.description}`);
-  if (/CAMINADOR|GIMNASIO|ESCALERA|CANGURO|CORRAL|MOVIL/.test(text)) return "Gimnasios y andadores";
-  if (/BIBERON|CHUPON|TOMATODO|BABERO|CUBIERTO|PLATO|VASO|CEPILLO.*BIBERON|EXTRACTOR|CALENTADOR/.test(text)) return "Alimentaci\u00f3n";
-  if (/ASPIRADOR|MORDEDOR|GORRO.*BANO|RODILLERA|LENTES|PEINE|COJIN|CASCO|PISO|PORTA PANUELO/.test(text)) return "Cuidado y seguridad";
-  if (/MADERA|MONTESSORI|DIDACT|TABLERO|PUZZLE|PRESCHOOL|ROMPECABEZA|XILOFONO/.test(text)) return "Madera y didacticos";
-  if (/ARNES|ZAPAMEDIA|GUANTE|MANOS Y PIES|BABY CARE|BOLSA RECOLECTORA|GEL|GOTERO/.test(text)) return "Ropa y accesorios";
-  return "Juguetes";
+  return Object.entries(categoriesByProduct).find(([, numbers]) => numbers.includes(product.number))?.[0] || "Otros";
 }
 
 window.catalogProducts.forEach((product) => { product.category = productCategory(product); });
 catalogCount.textContent = `${window.catalogProducts.length} items disponibles`;
-const categoryOrder = ["Todos", "Juguetes", "Gimnasios y andadores", "Alimentaci\u00f3n", "Cuidado y seguridad", "Madera y didacticos", "Ropa y accesorios"];
+const categoryOrder = ["Todos", "Juguetes y estimulaci\u00f3n", "Alimentaci\u00f3n", "Lactancia", "Paseo y seguridad", "Ropa y accesorios", "Higiene y cuidado", "Otros"];
 
 function renderCategoryFilters() {
   categoryFilters.innerHTML = categoryOrder.filter((category) => category === "Todos" || window.catalogProducts.some((product) => product.category === category)).map((category) => {
