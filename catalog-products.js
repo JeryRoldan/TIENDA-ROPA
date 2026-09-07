@@ -309,7 +309,7 @@ window.catalogProducts = [
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 21.",
-      "Precio referencial: S/ 150.00.",
+      "Precio referencial: S/ 10.00.",
       "Presentación y colores sujetos a disponibilidad.",
       "Consulta el stock antes de confirmar tu pedido."
     ]
