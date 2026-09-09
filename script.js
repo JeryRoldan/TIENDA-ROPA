@@ -20,6 +20,9 @@ const cartItems = document.querySelector("#cartItems");
 const cartCount = document.querySelector("#cartCount");
 const cartTotal = document.querySelector("#cartTotal");
 const checkoutButton = document.querySelector("#checkoutButton");
+const reviewsTrigger = document.querySelector("#reviewsTrigger");
+const reviewsPanel = document.querySelector("#reviewsPanel");
+const reviewsClose = document.querySelector(".reviews-close");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const navItems = document.querySelectorAll(".nav-links a");
@@ -28,6 +31,7 @@ let cart = [];
 let activeCategory = "Todos";
 
 const money = (value) => `S/ ${value.toFixed(2)}`;
+const discountedPrice = (product) => product.price * 0.5;
 
 function normalized(value) {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
@@ -66,14 +70,14 @@ function renderProducts() {
   });
   productGrid.innerHTML = visibleProducts.map((product) => `
     <article class="product-card">
-      <div class="product-image"><img src="${product.image}" alt="${product.alt}" loading="lazy"></div>
+      <div class="product-image"><span class="discount-badge">-50%</span><img src="${product.image}" alt="${product.alt}" loading="lazy"></div>
       <div class="product-info">
-        <p class="product-tag">Código ${product.number}</p>
+        <p class="product-tag">C&oacute;digo ${product.number}</p>
         <h3>${product.title}</h3>
         <p>${product.description}</p>
-        <p class="product-price">${money(product.price)}</p>
+        <p class="product-price price-row"><span class="current-price">${money(discountedPrice(product))}</span><span class="old-price">${money(product.price)}</span></p>
         <button class="detail-button" type="button" data-product="${product.id}">Ver especificaciones</button>
-        <button class="add-cart-button" type="button" data-product="${product.id}">Añadir al carrito</button>
+        <button class="add-cart-button" type="button" data-product="${product.id}">A&ntilde;adir al carrito</button>
       </div>
     </article>`).join("") || '<p class="empty-catalog">No encontramos productos con esa b&uacute;squeda.</p>';
 }
@@ -103,10 +107,10 @@ function openModal(productKey) {
 
   modalImage.src = product.image;
   modalImage.alt = product.alt;
-  modalTag.textContent = `C\u00f3digo ${product.number} · ${product.category}`;
+  modalTag.textContent = `C\u00f3digo ${product.number} \u00b7 ${product.category}`;
   modalTitle.textContent = product.title;
   modalDescription.textContent = product.description;
-  modalPrice.textContent = money(product.price);
+  modalPrice.innerHTML = `<div class="price-row"><span class="current-price">${money(discountedPrice(product))}</span><span class="old-price">${money(product.price)}</span></div>`;
   selectedProduct = productKey;
   modalFeatures.innerHTML = "";
 
@@ -134,11 +138,11 @@ function closeCart() {
 
 function renderCart() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const total = cart.reduce((sum, item) => sum + products[item.key].price * item.quantity, 0);
+  const total = cart.reduce((sum, item) => sum + discountedPrice(products[item.key]) * item.quantity, 0);
   cartCount.textContent = totalItems;
   cartTotal.textContent = money(total);
   if (!cart.length) {
-    cartItems.innerHTML = '<p class="empty-cart">Tu carrito está vacío. Agrega una ropita para comenzar tu pedido.</p>';
+    cartItems.innerHTML = '<p class="empty-cart">Tu carrito est&aacute; vac&iacute;o. Agrega un producto para comenzar tu pedido.</p>';
     checkoutButton.classList.add("is-disabled");
     checkoutButton.href = "https://wa.me/51904226429";
     return;
@@ -146,9 +150,9 @@ function renderCart() {
   checkoutButton.classList.remove("is-disabled");
   cartItems.innerHTML = cart.map(({ key, quantity }) => {
     const product = products[key];
-    return `<article class="cart-item"><img src="${product.image}" alt="${product.alt}"><div><h3>${product.title}</h3><p>${money(product.price)}</p><div class="quantity-controls"><button type="button" data-action="decrease" data-product="${key}" aria-label="Restar una unidad">−</button><strong>${quantity}</strong><button type="button" data-action="increase" data-product="${key}" aria-label="Sumar una unidad">+</button><button class="remove-item" type="button" data-action="remove" data-product="${key}">Eliminar</button></div></div></article>`;
+    return `<article class="cart-item"><img src="${product.image}" alt="${product.alt}"><div><h3>${product.title}</h3><p>${money(discountedPrice(product))}</p><div class="quantity-controls"><button type="button" data-action="decrease" data-product="${key}" aria-label="Restar una unidad">&minus;</button><strong>${quantity}</strong><button type="button" data-action="increase" data-product="${key}" aria-label="Sumar una unidad">+</button><button class="remove-item" type="button" data-action="remove" data-product="${key}">Eliminar</button></div></div></article>`;
   }).join("");
-  const message = cart.map(({ key, quantity }) => `${quantity} x ${products[key].title} (${money(products[key].price * quantity)})`).join("\n");
+  const message = cart.map(({ key, quantity }) => `${quantity} x ${products[key].title} (${money(discountedPrice(products[key]) * quantity)})`).join("\n");
   checkoutButton.href = `https://wa.me/51904226429?text=${encodeURIComponent(`Hola, quiero hacer este pedido:\n${message}\n\nTotal: ${money(total)}`)}`;
 }
 
@@ -163,6 +167,13 @@ function addToCart(productKey) {
 function closeModal() {
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
+}
+
+function setReviews(open) {
+  reviewsPanel.classList.toggle("is-open", open);
+  reviewsPanel.setAttribute("aria-hidden", String(!open));
+  reviewsTrigger.setAttribute("aria-expanded", String(open));
+  if (open) reviewsClose.focus();
 }
 
 productGrid.addEventListener("click", (event) => {
@@ -195,6 +206,8 @@ cartItems.addEventListener("click", (event) => {
 });
 
 menuToggle?.addEventListener("click", toggleMenu);
+reviewsTrigger.addEventListener("click", () => setReviews(!reviewsPanel.classList.contains("is-open")));
+reviewsClose.addEventListener("click", () => setReviews(false));
 
 navItems.forEach((item) => {
   item.addEventListener("click", closeMenu);
@@ -214,6 +227,7 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeMenu();
     closeCart();
+    setReviews(false);
   }
 });
 

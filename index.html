@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MY FIRST BABY | Ropa de Bebe</title>
+    <title>MY FIRST BABY | Accesorios para beb&eacute;s</title>
     <link rel="icon" type="image/png" href="assets/logo-my-first-baby-sin-fondo.png" />
     <link rel="apple-touch-icon" href="assets/logo-my-first-baby-sin-fondo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Quicksand:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -34,12 +34,12 @@
       </button>
 
       <nav class="nav-links" id="mainNav" aria-label="Navegacion principal">
-        <a href="#catalogo">Catálogo</a>
+        <a href="#catalogo">Cat&aacute;logo</a>
         <a href="#calidad">Calidad</a>
         <a href="#contacto">Contacto</a>
       </nav>
       <button class="cart-trigger" type="button" aria-label="Abrir carrito" aria-haspopup="dialog">
-        <span aria-hidden="true">🛒</span>
+        <span aria-hidden="true">&#128722;</span>
         <span>Carrito</span>
         <b class="cart-count" id="cartCount">0</b>
       </button>
@@ -53,49 +53,47 @@
             src="assets/logo-my-first-baby-sin-fondo.png"
             alt="Logo MY FIRST BABY"
           />
-          <p class="eyebrow">Ropa de bebe por meses</p>
           <h1>MY FIRST BABY</h1>
           <p class="hero-copy">
             Prendas, accesorios y art&iacute;culos esenciales para reci&eacute;n nacidos
             y beb&eacute;s, pensados para acompa&ntilde;ar cada etapa con comodidad y cuidado.
           </p>
           <div class="hero-actions">
-            <a class="primary-button" href="#catalogo">Ver catálogo</a>
+            <a class="primary-button" href="#catalogo">Ver cat&aacute;logo</a>
             <a class="secondary-button" href="#contacto">Cotizar ahora</a>
           </div>
         </div>
 
-        <div class="hero-product" aria-label="Ropa de bebe destacada">
+        <div class="hero-product" aria-label="Logo de MY FIRST BABY">
           <img
-            src="assets/bebe-0-3-meses.png"
-            alt="Conjunto de ropa de bebe MY FIRST BABY"
+            src="assets/logo-my-first-baby-sin-fondo.png"
+            alt="Logo de MY FIRST BABY"
           />
         </div>
       </section>
 
       <section class="quality-strip" id="calidad">
         <article>
-          <strong>Telas suaves</strong>
-          <span>Algodon, tejido rib y telas hipoalergenicas segun el modelo.</span>
+          <strong>Suavidad desde el primer d&iacute;a</strong>
+          <span>Prendas confeccionadas con los tejidos m&aacute;s suaves, hipoalerg&eacute;nicos y delicados que abrazan la piel de tu peque&ntilde;o desde su primer d&iacute;a.</span>
         </article>
         <article>
-          <strong>Acabados delicados</strong>
-          <span>Costuras suaves, broches seguros y elasticos comodos.</span>
+          <strong>Estimula su desarrollo</strong>
+          <span>Fomenta el desarrollo motor y cognitivo de tu peque&ntilde;o desde sus primeras semanas.</span>
         </article>
         <article>
-          <strong>Por meses</strong>
-          <span>Opciones para recien nacido, 0-3, 3-6, 6-12 y mas.</span>
+          <strong>Cuidado y protecci&oacute;n</strong>
+          <span>Mant&eacute;n el delicado cuidado de su piel desde el primer d&iacute;a con kits pensados para la protecci&oacute;n de tu beb&eacute;.</span>
         </article>
       </section>
 
       <section class="catalog-section" id="catalogo">
         <div class="section-heading">
-          <p class="eyebrow">Catálogo global</p>
-          <h2>Ropita lista para cada etapa</h2>
+          <h2 class="catalog-title">CAT&Aacute;LOGO GLOBAL</h2>
           <div class="catalog-explorer">
             <label class="sr-only" for="catalogSearch">Buscar en el cat&aacute;logo</label>
             <div class="catalog-search">
-              <span aria-hidden="true">⌕</span>
+              <span aria-hidden="true">&#9906;</span>
               <input id="catalogSearch" type="search" placeholder="Buscar productos en el cat&aacute;logo" autocomplete="off" />
             </div>
             <div class="category-filters" id="categoryFilters" aria-label="Filtrar por categor&iacute;a"></div>
@@ -109,6 +107,25 @@
         <div class="product-grid" id="productGrid"></div>
       </section>
 
+      <section class="delivery-section" id="entregas">
+        <div class="delivery-heading">
+          <p class="eyebrow">Tipos de entrega</p>
+          <h2>Recibe tu pedido donde est&eacute;s</h2>
+        </div>
+        <div class="delivery-grid">
+          <article>
+            <span class="delivery-icon" aria-hidden="true">&#128666;</span>
+            <h3>Lima</h3>
+            <p>Entrega a domicilio. Coordinamos contigo la fecha, el horario y el costo de env&iacute;o.</p>
+          </article>
+          <article>
+            <span class="delivery-icon" aria-hidden="true">&#128230;</span>
+            <h3>Provincias</h3>
+            <p>Env&iacute;os a nivel nacional. Para confirmar el pedido se realiza el pago del 100%.</p>
+          </article>
+        </div>
+      </section>
+
     </main>
 
     <footer class="site-footer" id="contacto">
@@ -116,6 +133,8 @@
         <p class="footer-title">Cont&aacute;ctanos</p>
         <p class="footer-label">Direcci&oacute;n</p>
         <address>Lima, Per&uacute;<br />Tienda virtual</address>
+        <p class="footer-label">RUC</p>
+        <p class="footer-text">Por confirmar</p>
         <p class="footer-label">Tel&eacute;fono</p>
         <a class="footer-link" href="tel:+51904226429">+51 904 226 429</a>
       </section>
@@ -143,8 +162,8 @@
           <p id="modalDescription"></p>
           <ul id="modalFeatures"></ul>
           <div class="modal-purchase">
-            <p class="modal-price" id="modalPrice"></p>
-            <button class="add-cart-button" id="modalAddCart" type="button">Añadir al carrito</button>
+            <div class="modal-price" id="modalPrice"></div>
+            <button class="add-cart-button" id="modalAddCart" type="button">A&ntilde;adir al carrito</button>
           </div>
         </div>
       </section>
@@ -163,6 +182,22 @@
         </div>
       </aside>
     </div>
+
+    <button class="reviews-trigger" id="reviewsTrigger" type="button" aria-expanded="false" aria-controls="reviewsPanel">
+      <span aria-hidden="true">&#9733;</span> Rese&ntilde;as
+    </button>
+    <aside class="reviews-panel" id="reviewsPanel" aria-hidden="true" aria-labelledby="reviewsTitle">
+      <div class="reviews-heading">
+        <div><p class="eyebrow">Clientes felices</p><h2 id="reviewsTitle">Rese&ntilde;as</h2></div>
+        <button class="reviews-close" type="button" aria-label="Cerrar rese&ntilde;as">&times;</button>
+      </div>
+      <div class="reviews-empty">
+        <div class="review-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <strong>Pr&oacute;ximamente compartiremos opiniones verificadas.</strong>
+        <p>Si ya compraste con nosotros, cu&eacute;ntanos tu experiencia por WhatsApp.</p>
+        <a href="https://wa.me/51904226429?text=Hola%2C%20quiero%20compartir%20mi%20rese%C3%B1a%20sobre%20MY%20FIRST%20BABY" target="_blank" rel="noreferrer">Enviar mi rese&ntilde;a</a>
+      </div>
+    </aside>
 
     <a
       class="whatsapp-float"
