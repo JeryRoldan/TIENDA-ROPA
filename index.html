@@ -37,6 +37,7 @@
         <a href="#catalogo">Cat&aacute;logo</a>
         <a href="#calidad">Calidad</a>
         <a href="#contacto">Contacto</a>
+        <a class="nav-quote" href="#contacto">Cotizar ahora</a>
       </nav>
       <button class="cart-trigger" type="button" aria-label="Abrir carrito" aria-haspopup="dialog">
         <span aria-hidden="true">&#128722;</span>
@@ -58,17 +59,6 @@
             Prendas, accesorios y art&iacute;culos esenciales para reci&eacute;n nacidos
             y beb&eacute;s, pensados para acompa&ntilde;ar cada etapa con comodidad y cuidado.
           </p>
-          <div class="hero-actions">
-            <a class="primary-button" href="#catalogo">Ver cat&aacute;logo</a>
-            <a class="secondary-button" href="#contacto">Cotizar ahora</a>
-          </div>
-        </div>
-
-        <div class="hero-product" aria-label="Logo de MY FIRST BABY">
-          <img
-            src="assets/logo-my-first-baby-sin-fondo.png"
-            alt="Logo de MY FIRST BABY"
-          />
         </div>
       </section>
 
@@ -191,12 +181,25 @@
         <div><p class="eyebrow">Clientes felices</p><h2 id="reviewsTitle">Rese&ntilde;as</h2></div>
         <button class="reviews-close" type="button" aria-label="Cerrar rese&ntilde;as">&times;</button>
       </div>
-      <div class="reviews-empty">
-        <div class="review-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <strong>Pr&oacute;ximamente compartiremos opiniones verificadas.</strong>
-        <p>Si ya compraste con nosotros, cu&eacute;ntanos tu experiencia por WhatsApp.</p>
-        <a href="https://wa.me/51904226429?text=Hola%2C%20quiero%20compartir%20mi%20rese%C3%B1a%20sobre%20MY%20FIRST%20BABY" target="_blank" rel="noreferrer">Enviar mi rese&ntilde;a</a>
-      </div>
+      <form class="review-form" id="reviewForm">
+        <label for="reviewName">Nombre <span>(opcional)</span></label>
+        <input id="reviewName" name="name" type="text" maxlength="40" autocomplete="name" placeholder="Tu nombre" />
+        <fieldset>
+          <legend>Tu calificaci&oacute;n</legend>
+          <div class="star-picker" id="starPicker" aria-label="Selecciona de 1 a 5 estrellas">
+            <button type="button" data-rating="1" aria-label="1 estrella">&#9733;</button>
+            <button type="button" data-rating="2" aria-label="2 estrellas">&#9733;</button>
+            <button type="button" data-rating="3" aria-label="3 estrellas">&#9733;</button>
+            <button type="button" data-rating="4" aria-label="4 estrellas">&#9733;</button>
+            <button type="button" data-rating="5" aria-label="5 estrellas">&#9733;</button>
+          </div>
+        </fieldset>
+        <label for="reviewComment">Comentario</label>
+        <textarea id="reviewComment" name="comment" rows="3" maxlength="400" required placeholder="Cu&eacute;ntanos tu experiencia"></textarea>
+        <p class="review-status" id="reviewStatus" role="status" aria-live="polite"></p>
+        <button class="review-submit" type="submit">Guardar rese&ntilde;a</button>
+      </form>
+      <div class="reviews-list" id="reviewsList" aria-live="polite"></div>
     </aside>
 
     <a

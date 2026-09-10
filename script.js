@@ -23,15 +23,24 @@ const checkoutButton = document.querySelector("#checkoutButton");
 const reviewsTrigger = document.querySelector("#reviewsTrigger");
 const reviewsPanel = document.querySelector("#reviewsPanel");
 const reviewsClose = document.querySelector(".reviews-close");
+const reviewForm = document.querySelector("#reviewForm");
+const reviewName = document.querySelector("#reviewName");
+const reviewComment = document.querySelector("#reviewComment");
+const reviewStatus = document.querySelector("#reviewStatus");
+const reviewsList = document.querySelector("#reviewsList");
+const starPicker = document.querySelector("#starPicker");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const navItems = document.querySelectorAll(".nav-links a");
+const REVIEW_STORAGE_KEY = "my-first-baby-reviews";
 let selectedProduct = null;
 let cart = [];
 let activeCategory = "Todos";
+let selectedRating = 5;
+let reviews = loadReviews();
 
 const money = (value) => `S/ ${value.toFixed(2)}`;
-const discountedPrice = (product) => product.price * 0.5;
+const regularPrice = (product) => product.price * 1.5;
 
 function normalized(value) {
   return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
@@ -70,12 +79,12 @@ function renderProducts() {
   });
   productGrid.innerHTML = visibleProducts.map((product) => `
     <article class="product-card">
-      <div class="product-image"><span class="discount-badge">-50%</span><img src="${product.image}" alt="${product.alt}" loading="lazy"></div>
+      <div class="product-image"><span class="discount-badge">OFERTA</span><img src="${product.image}" alt="${product.alt}" loading="lazy"></div>
       <div class="product-info">
         <p class="product-tag">C&oacute;digo ${product.number}</p>
         <h3>${product.title}</h3>
         <p>${product.description}</p>
-        <p class="product-price price-row"><span class="current-price">${money(discountedPrice(product))}</span><span class="old-price">${money(product.price)}</span></p>
+        <p class="product-price price-row"><span class="current-price">${money(product.price)}</span><span class="old-price">${money(regularPrice(product))}</span></p>
         <button class="detail-button" type="button" data-product="${product.id}">Ver especificaciones</button>
         <button class="add-cart-button" type="button" data-product="${product.id}">A&ntilde;adir al carrito</button>
       </div>
@@ -110,7 +119,7 @@ function openModal(productKey) {
   modalTag.textContent = `C\u00f3digo ${product.number} \u00b7 ${product.category}`;
   modalTitle.textContent = product.title;
   modalDescription.textContent = product.description;
-  modalPrice.innerHTML = `<div class="price-row"><span class="current-price">${money(discountedPrice(product))}</span><span class="old-price">${money(product.price)}</span></div>`;
+  modalPrice.innerHTML = `<div class="price-row"><span class="current-price">${money(product.price)}</span><span class="old-price">${money(regularPrice(product))}</span></div>`;
   selectedProduct = productKey;
   modalFeatures.innerHTML = "";
 
@@ -138,7 +147,7 @@ function closeCart() {
 
 function renderCart() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const total = cart.reduce((sum, item) => sum + discountedPrice(products[item.key]) * item.quantity, 0);
+  const total = cart.reduce((sum, item) => sum + products[item.key].price * item.quantity, 0);
   cartCount.textContent = totalItems;
   cartTotal.textContent = money(total);
   if (!cart.length) {
@@ -150,9 +159,9 @@ function renderCart() {
   checkoutButton.classList.remove("is-disabled");
   cartItems.innerHTML = cart.map(({ key, quantity }) => {
     const product = products[key];
-    return `<article class="cart-item"><img src="${product.image}" alt="${product.alt}"><div><h3>${product.title}</h3><p>${money(discountedPrice(product))}</p><div class="quantity-controls"><button type="button" data-action="decrease" data-product="${key}" aria-label="Restar una unidad">&minus;</button><strong>${quantity}</strong><button type="button" data-action="increase" data-product="${key}" aria-label="Sumar una unidad">+</button><button class="remove-item" type="button" data-action="remove" data-product="${key}">Eliminar</button></div></div></article>`;
+    return `<article class="cart-item"><img src="${product.image}" alt="${product.alt}"><div><h3>${product.title}</h3><p>${money(product.price)}</p><div class="quantity-controls"><button type="button" data-action="decrease" data-product="${key}" aria-label="Restar una unidad">&minus;</button><strong>${quantity}</strong><button type="button" data-action="increase" data-product="${key}" aria-label="Sumar una unidad">+</button><button class="remove-item" type="button" data-action="remove" data-product="${key}">Eliminar</button></div></div></article>`;
   }).join("");
-  const message = cart.map(({ key, quantity }) => `${quantity} x ${products[key].title} (${money(discountedPrice(products[key]) * quantity)})`).join("\n");
+  const message = cart.map(({ key, quantity }) => `${quantity} x ${products[key].title} (${money(products[key].price * quantity)})`).join("\n");
   checkoutButton.href = `https://wa.me/51904226429?text=${encodeURIComponent(`Hola, quiero hacer este pedido:\n${message}\n\nTotal: ${money(total)}`)}`;
 }
 
@@ -174,6 +183,49 @@ function setReviews(open) {
   reviewsPanel.setAttribute("aria-hidden", String(!open));
   reviewsTrigger.setAttribute("aria-expanded", String(open));
   if (open) reviewsClose.focus();
+}
+
+function loadReviews() {
+  try {
+    const savedReviews = JSON.parse(localStorage.getItem(REVIEW_STORAGE_KEY) || "[]");
+    return Array.isArray(savedReviews) ? savedReviews : [];
+  } catch {
+    return [];
+  }
+}
+
+function updateStarPicker() {
+  starPicker.querySelectorAll("button[data-rating]").forEach((button) => {
+    const active = Number(button.dataset.rating) <= selectedRating;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(Number(button.dataset.rating) === selectedRating));
+  });
+}
+
+function renderReviews() {
+  reviewsList.innerHTML = "";
+
+  if (!reviews.length) {
+    const empty = document.createElement("p");
+    empty.className = "reviews-empty-message";
+    empty.textContent = "Aún no hay reseñas guardadas. ¡Sé la primera persona en opinar!";
+    reviewsList.appendChild(empty);
+    return;
+  }
+
+  reviews.slice().reverse().forEach((review) => {
+    const article = document.createElement("article");
+    const stars = document.createElement("div");
+    const comment = document.createElement("p");
+    const meta = document.createElement("small");
+    stars.className = "review-stars";
+    stars.setAttribute("aria-label", `${review.rating} de 5 estrellas`);
+    stars.textContent = "★".repeat(review.rating) + "☆".repeat(5 - review.rating);
+    comment.textContent = review.comment;
+    meta.textContent = `${review.name || "Cliente"} · ${review.date}`;
+    article.append(stars, comment, meta);
+    reviewsList.appendChild(article);
+  });
 }
 
 productGrid.addEventListener("click", (event) => {
@@ -208,6 +260,41 @@ cartItems.addEventListener("click", (event) => {
 menuToggle?.addEventListener("click", toggleMenu);
 reviewsTrigger.addEventListener("click", () => setReviews(!reviewsPanel.classList.contains("is-open")));
 reviewsClose.addEventListener("click", () => setReviews(false));
+starPicker.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-rating]");
+  if (!button) return;
+  selectedRating = Number(button.dataset.rating);
+  updateStarPicker();
+});
+reviewForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const comment = reviewComment.value.trim();
+  if (!comment) {
+    reviewStatus.textContent = "Escribe un comentario antes de guardar.";
+    reviewComment.focus();
+    return;
+  }
+
+  const newReview = {
+    name: reviewName.value.trim().slice(0, 40),
+    comment: comment.slice(0, 400),
+    rating: selectedRating,
+    date: new Intl.DateTimeFormat("es-PE", { dateStyle: "medium" }).format(new Date()),
+  };
+  const updatedReviews = [...reviews, newReview].slice(-50);
+  try {
+    localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(updatedReviews));
+  } catch {
+    reviewStatus.textContent = "No se pudo guardar la reseña en este navegador.";
+    return;
+  }
+  reviews = updatedReviews;
+  reviewForm.reset();
+  selectedRating = 5;
+  updateStarPicker();
+  renderReviews();
+  reviewStatus.textContent = "Tu reseña quedó guardada en este dispositivo.";
+});
 
 navItems.forEach((item) => {
   item.addEventListener("click", closeMenu);
@@ -234,3 +321,5 @@ document.addEventListener("keydown", (event) => {
 renderCategoryFilters();
 renderProducts();
 renderCart();
+updateStarPicker();
+renderReviews();
