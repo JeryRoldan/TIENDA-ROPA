@@ -157,6 +157,7 @@ h1, h2, h3, .brand, .nav-links, button, .primary-button, .secondary-button,
 
 .hero-content {
   max-width: 690px;
+  transform: translateY(clamp(-110px, -7vw, -60px));
 }
 
 .hero-content > * { animation: reveal-up 760ms cubic-bezier(.16, 1, .3, 1) both; }
@@ -659,6 +660,8 @@ h1 {
   .hero {
     min-height: auto;
   }
+
+  .hero-content { transform: none; }
 
   .hero-product,
   .hero-product img {
