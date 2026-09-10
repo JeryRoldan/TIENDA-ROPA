@@ -138,6 +138,7 @@ h1, h2, h3, .brand, .nav-links, button, .primary-button, .secondary-button,
 .nav-links .nav-quote:hover { color: var(--white); transform: translateY(-2px); }
 
 .cart-trigger { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; background: var(--white); font: inherit; font-weight: 800; cursor: pointer; }
+.cart-icon { width: 22px; height: 22px; flex: 0 0 auto; fill: none; stroke: #2b3a4a; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .cart-count { display: grid; min-width: 21px; height: 21px; place-items: center; border-radius: 50%; background: var(--green); color: var(--white); font-size: .75rem; }
 .cart-trigger, .menu-toggle, .category-filter, .pdf-button, .facebook-link { transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease, color 220ms ease; }
 .cart-trigger:hover, .menu-toggle:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 20px rgba(21, 18, 12, .13); }
