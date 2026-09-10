@@ -32,12 +32,16 @@ const starPicker = document.querySelector("#starPicker");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const navItems = document.querySelectorAll(".nav-links a");
-const REVIEW_STORAGE_KEY = "my-first-baby-reviews";
+const reviewSubmit = reviewForm.querySelector(".review-submit");
+const SUPABASE_URL = "https://shcpoeetynboddtvyzwi.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_2HlifU9OKRsH1EDYMabrSA_2VIGHQR5";
+const REVIEWS_ENDPOINT = `${SUPABASE_URL}/rest/v1/reviews`;
+const REVIEW_COOLDOWN_KEY = "my-first-baby-last-review";
 let selectedProduct = null;
 let cart = [];
 let activeCategory = "Todos";
 let selectedRating = 5;
-let reviews = loadReviews();
+let reviews = [];
 
 const money = (value) => `S/ ${value.toFixed(2)}`;
 const regularPrice = (product) => product.price * 1.5;
@@ -185,12 +189,19 @@ function setReviews(open) {
   if (open) reviewsClose.focus();
 }
 
-function loadReviews() {
+async function loadReviews() {
+  reviewsList.innerHTML = '<p class="reviews-empty-message">Cargando rese&ntilde;as...</p>';
+
   try {
-    const savedReviews = JSON.parse(localStorage.getItem(REVIEW_STORAGE_KEY) || "[]");
-    return Array.isArray(savedReviews) ? savedReviews : [];
+    const response = await fetch(
+      `${REVIEWS_ENDPOINT}?select=id,name,rating,comment,created_at&order=created_at.desc&limit=50`,
+      { headers: { apikey: SUPABASE_PUBLISHABLE_KEY } },
+    );
+    if (!response.ok) throw new Error(`Supabase respondió ${response.status}`);
+    reviews = await response.json();
+    renderReviews();
   } catch {
-    return [];
+    reviewsList.innerHTML = '<p class="reviews-error">No pudimos cargar las rese&ntilde;as. Int&eacute;ntalo nuevamente en unos minutos.</p>';
   }
 }
 
@@ -213,7 +224,7 @@ function renderReviews() {
     return;
   }
 
-  reviews.slice().reverse().forEach((review) => {
+  reviews.forEach((review) => {
     const article = document.createElement("article");
     const stars = document.createElement("div");
     const comment = document.createElement("p");
@@ -222,7 +233,8 @@ function renderReviews() {
     stars.setAttribute("aria-label", `${review.rating} de 5 estrellas`);
     stars.textContent = "★".repeat(review.rating) + "☆".repeat(5 - review.rating);
     comment.textContent = review.comment;
-    meta.textContent = `${review.name || "Cliente"} · ${review.date}`;
+    const date = new Intl.DateTimeFormat("es-PE", { dateStyle: "medium" }).format(new Date(review.created_at));
+    meta.textContent = `${review.name || "Cliente"} · ${date}`;
     article.append(stars, comment, meta);
     reviewsList.appendChild(article);
   });
@@ -266,7 +278,7 @@ starPicker.addEventListener("click", (event) => {
   selectedRating = Number(button.dataset.rating);
   updateStarPicker();
 });
-reviewForm.addEventListener("submit", (event) => {
+reviewForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const comment = reviewComment.value.trim();
   if (!comment) {
@@ -275,25 +287,45 @@ reviewForm.addEventListener("submit", (event) => {
     return;
   }
 
-  const newReview = {
-    name: reviewName.value.trim().slice(0, 40),
-    comment: comment.slice(0, 400),
-    rating: selectedRating,
-    date: new Intl.DateTimeFormat("es-PE", { dateStyle: "medium" }).format(new Date()),
-  };
-  const updatedReviews = [...reviews, newReview].slice(-50);
-  try {
-    localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(updatedReviews));
-  } catch {
-    reviewStatus.textContent = "No se pudo guardar la reseña en este navegador.";
+  const lastSubmission = Number(localStorage.getItem(REVIEW_COOLDOWN_KEY) || 0);
+  if (Date.now() - lastSubmission < 30000) {
+    reviewStatus.textContent = "Espera unos segundos antes de enviar otra reseña.";
     return;
   }
-  reviews = updatedReviews;
+
+  const newReview = {
+    name: reviewName.value.trim().slice(0, 40) || null,
+    comment: comment.slice(0, 400),
+    rating: selectedRating,
+  };
+
+  reviewSubmit.disabled = true;
+  reviewStatus.textContent = "Publicando tu reseña...";
+
+  try {
+    const response = await fetch(REVIEWS_ENDPOINT, {
+      method: "POST",
+      headers: {
+        apikey: SUPABASE_PUBLISHABLE_KEY,
+        "Content-Type": "application/json",
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify(newReview),
+    });
+    if (!response.ok) throw new Error(`Supabase respondió ${response.status}`);
+    localStorage.setItem(REVIEW_COOLDOWN_KEY, String(Date.now()));
+  } catch {
+    reviewStatus.textContent = "No pudimos publicar la reseña. Inténtalo nuevamente.";
+    reviewSubmit.disabled = false;
+    return;
+  }
+
   reviewForm.reset();
   selectedRating = 5;
   updateStarPicker();
-  renderReviews();
-  reviewStatus.textContent = "Tu reseña quedó guardada en este dispositivo.";
+  await loadReviews();
+  reviewStatus.textContent = "¡Gracias! Tu reseña ya está publicada para todos.";
+  reviewSubmit.disabled = false;
 });
 
 navItems.forEach((item) => {
@@ -322,4 +354,4 @@ renderCategoryFilters();
 renderProducts();
 renderCart();
 updateStarPicker();
-renderReviews();
+loadReviews();
