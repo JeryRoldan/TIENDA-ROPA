@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Quicksand:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260910-6" />
+    <link rel="stylesheet" href="styles.css?v=20260910-7" />
   </head>
   <body>
     <header class="site-header">
@@ -110,12 +110,17 @@
         </div>
         <div class="delivery-grid">
           <article>
-            <span class="delivery-icon" aria-hidden="true">&#128666;</span>
+            <svg class="delivery-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h11v10H3zM14 9h4l3 3v4h-7z" />
+              <circle cx="7" cy="18" r="2" /><circle cx="18" cy="18" r="2" />
+            </svg>
             <h3>Lima</h3>
             <p>Entrega a domicilio. Coordinamos contigo la fecha, el horario y el costo de env&iacute;o.</p>
           </article>
           <article>
-            <span class="delivery-icon" aria-hidden="true">&#128230;</span>
+            <svg class="delivery-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m4 7 8-4 8 4-8 4zM4 7v10l8 4 8-4V7M12 11v10" />
+            </svg>
             <h3>Provincias</h3>
             <p>Env&iacute;os a nivel nacional. Para confirmar el pedido se realiza el pago del 100%.</p>
           </article>
@@ -170,6 +175,21 @@
         <div class="cart-heading">
           <div><p class="eyebrow">Tu pedido</p><h2 id="cartTitle">Carrito</h2></div>
           <button class="cart-close" type="button" aria-label="Cerrar carrito">&times;</button>
+        </div>
+        <div class="cart-delivery-info" aria-label="Condiciones de entrega">
+          <div class="cart-delivery-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h11v10H3zM14 9h4l3 3v4h-7z" />
+              <circle cx="7" cy="18" r="2" /><circle cx="18" cy="18" r="2" />
+            </svg>
+            <span><strong>Lima</strong><small>Entrega a domicilio</small></span>
+          </div>
+          <div class="cart-delivery-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m4 7 8-4 8 4-8 4zM4 7v10l8 4 8-4V7M12 11v10" />
+            </svg>
+            <span><strong>Provincias</strong><small>Pago del 100%</small></span>
+          </div>
         </div>
         <div class="cart-items" id="cartItems"></div>
         <div class="cart-summary">
