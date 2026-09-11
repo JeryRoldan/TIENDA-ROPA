@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Libro de Reclamaciones Virtual de MY FIRST BABY." />
+    <title>Libro de Reclamaciones | MY FIRST BABY</title>
+    <link rel="canonical" href="https://myfirstbabyshop.com/reclamaciones/" />
+    <link rel="icon" type="image/png" href="../assets/logo-my-first-baby-sin-fondo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20260911-1" />
+  </head>
+  <body>
+    <header class="claims-header">
+      <a href="/" class="claims-brand" aria-label="Volver a MY FIRST BABY">
+        <img src="../assets/logo-my-first-baby-sin-fondo.png" alt="" />
+        <span>MY FIRST BABY</span>
+      </a>
+      <a class="back-link" href="/">Volver a la tienda</a>
+    </header>
+
+    <main class="claims-main">
+      <section class="claims-intro">
+        <p class="eyebrow">Atenci&oacute;n al cliente</p>
+        <h1>Libro de Reclamaciones Virtual</h1>
+        <p>Registra aqu&iacute; tu reclamo o queja. Recibir&aacute;s un c&oacute;digo para conservar e imprimir como constancia.</p>
+      </section>
+
+      <section class="provider-card" aria-labelledby="providerTitle">
+        <div>
+          <p class="section-number">01</p>
+          <h2 id="providerTitle">Identificaci&oacute;n del proveedor</h2>
+        </div>
+        <dl>
+          <div><dt>Nombre comercial</dt><dd>MY FIRST BABY</dd></div>
+          <div><dt>Titular del RUC</dt><dd>BARRIENTOS CUEVA LUCIANA ANGELA</dd></div>
+          <div><dt>RUC</dt><dd>10754804381</dd></div>
+          <div><dt>Direcci&oacute;n</dt><dd>Lima, Per&uacute; &mdash; Tienda virtual</dd></div>
+          <div><dt>Fecha</dt><dd id="claimDate"></dd></div>
+        </dl>
+      </section>
+
+      <form class="claims-form" id="claimsForm">
+        <section class="form-section" aria-labelledby="consumerTitle">
+          <div class="section-heading"><p class="section-number">02</p><h2 id="consumerTitle">Datos del consumidor</h2></div>
+          <div class="form-grid">
+            <label class="field field-wide">Nombre completo<input name="full_name" type="text" minlength="3" maxlength="120" autocomplete="name" required /></label>
+            <label class="field">Tipo de documento<select name="document_type" required><option value="DNI">DNI</option><option value="CE">Carn&eacute; de extranjer&iacute;a</option><option value="Pasaporte">Pasaporte</option></select></label>
+            <label class="field">N&uacute;mero de documento<input name="document_number" type="text" minlength="6" maxlength="20" inputmode="numeric" required /></label>
+            <label class="field">Tel&eacute;fono<input name="phone" type="tel" minlength="6" maxlength="20" autocomplete="tel" required /></label>
+            <label class="field">Correo electr&oacute;nico<input name="email" type="email" minlength="5" maxlength="120" autocomplete="email" required /></label>
+            <label class="field field-wide">Domicilio<input name="address" type="text" minlength="3" maxlength="180" autocomplete="street-address" required /></label>
+            <label class="check-field field-wide"><input id="isMinor" name="is_minor" type="checkbox" /> El consumidor es menor de edad</label>
+            <label class="field field-wide is-hidden" id="representativeField">Nombre del padre, madre o representante<input name="representative_name" type="text" minlength="3" maxlength="120" /></label>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="purchaseTitle">
+          <div class="section-heading"><p class="section-number">03</p><h2 id="purchaseTitle">Producto o servicio</h2></div>
+          <div class="form-grid">
+            <label class="field">Tipo<select name="item_type" required><option value="Producto">Producto</option><option value="Servicio">Servicio</option></select></label>
+            <label class="field">Monto reclamado (S/)<input name="amount" type="number" min="0" max="999999.99" step="0.01" inputmode="decimal" required /></label>
+            <label class="field field-wide">Descripci&oacute;n del producto o servicio<textarea name="item_description" rows="3" minlength="3" maxlength="500" required></textarea></label>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="claimTitle">
+          <div class="section-heading"><p class="section-number">04</p><h2 id="claimTitle">Detalle de la reclamaci&oacute;n</h2></div>
+          <fieldset class="claim-types">
+            <legend>Selecciona una opci&oacute;n</legend>
+            <label><input type="radio" name="claim_type" value="Reclamo" required /><span><strong>Reclamo</strong>Disconformidad relacionada con un producto o servicio.</span></label>
+            <label><input type="radio" name="claim_type" value="Queja" required /><span><strong>Queja</strong>Malestar relacionado con la atenci&oacute;n recibida.</span></label>
+          </fieldset>
+          <div class="form-grid claim-textareas">
+            <label class="field field-wide">Detalle del reclamo o queja<textarea name="detail" rows="5" minlength="3" maxlength="1500" required></textarea></label>
+            <label class="field field-wide">Pedido concreto del consumidor<textarea name="request" rows="4" minlength="3" maxlength="1000" required></textarea></label>
+          </div>
+        </section>
+
+        <section class="legal-note">
+          <p>La presentaci&oacute;n de este reclamo o queja no impide acudir a otras v&iacute;as de soluci&oacute;n de controversias ni constituye un requisito previo para presentar una denuncia ante el Indecopi.</p>
+          <p>MY FIRST BABY responder&aacute; en un plazo m&aacute;ximo de 15 d&iacute;as h&aacute;biles no prorrogables.</p>
+          <label class="check-field"><input name="accepted" type="checkbox" required /> Confirmo que los datos ingresados son correctos.</label>
+        </section>
+
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        <button class="submit-claim" type="submit">Enviar reclamaci&oacute;n</button>
+      </form>
+
+      <section class="claim-confirmation is-hidden" id="claimConfirmation" aria-labelledby="confirmationTitle">
+        <div class="confirmation-icon" aria-hidden="true">&#10003;</div>
+        <p class="eyebrow">Registro completado</p>
+        <h2 id="confirmationTitle">Tu reclamaci&oacute;n fue enviada</h2>
+        <p>Guarda este c&oacute;digo para el seguimiento:</p>
+        <strong class="tracking-code" id="trackingCode"></strong>
+        <dl class="receipt-details" id="receiptDetails"></dl>
+        <button class="print-button" id="printClaim" type="button">Imprimir constancia</button>
+      </section>
+
+      <p class="indecopi-note">M&aacute;s informaci&oacute;n en el <a href="https://consumidor.gob.pe/libro-de-reclamaciones/" target="_blank" rel="noreferrer">portal oficial del Libro de Reclamaciones del Indecopi</a>.</p>
+    </main>
+
+    <footer class="claims-footer">&copy; TODOS LOS DERECHOS RESERVADOS - &copy; 2026 My First Baby</footer>
+    <script src="script.js?v=20260911-1"></script>
+  </body>
+</html>
