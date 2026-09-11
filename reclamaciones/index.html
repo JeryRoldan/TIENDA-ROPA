@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260911-1" />
+    <link rel="stylesheet" href="styles.css?v=20260911-2" />
   </head>
   <body>
     <header class="claims-header">
@@ -43,46 +43,47 @@
       </section>
 
       <form class="claims-form" id="claimsForm">
+        <p class="required-note"><span aria-hidden="true">*</span> Todos los campos marcados son obligatorios.</p>
         <section class="form-section" aria-labelledby="consumerTitle">
           <div class="section-heading"><p class="section-number">02</p><h2 id="consumerTitle">Datos del consumidor</h2></div>
           <div class="form-grid">
-            <label class="field field-wide">Nombre completo<input name="full_name" type="text" minlength="3" maxlength="120" autocomplete="name" required /></label>
-            <label class="field">Tipo de documento<select name="document_type" required><option value="DNI">DNI</option><option value="CE">Carn&eacute; de extranjer&iacute;a</option><option value="Pasaporte">Pasaporte</option></select></label>
-            <label class="field">N&uacute;mero de documento<input name="document_number" type="text" minlength="6" maxlength="20" inputmode="numeric" required /></label>
-            <label class="field">Tel&eacute;fono<input name="phone" type="tel" minlength="6" maxlength="20" autocomplete="tel" required /></label>
-            <label class="field">Correo electr&oacute;nico<input name="email" type="email" minlength="5" maxlength="120" autocomplete="email" required /></label>
-            <label class="field field-wide">Domicilio<input name="address" type="text" minlength="3" maxlength="180" autocomplete="street-address" required /></label>
+            <label class="field field-wide"><span>Nombre completo <span class="required-mark" aria-hidden="true">*</span></span><input name="full_name" type="text" minlength="3" maxlength="120" autocomplete="name" required /></label>
+            <label class="field"><span>Tipo de documento <span class="required-mark" aria-hidden="true">*</span></span><select name="document_type" required><option value="" selected disabled>Selecciona una opci&oacute;n</option><option value="DNI">DNI</option><option value="CE">Carn&eacute; de extranjer&iacute;a</option><option value="Pasaporte">Pasaporte</option></select></label>
+            <label class="field"><span>N&uacute;mero de documento <span class="required-mark" aria-hidden="true">*</span></span><input name="document_number" type="text" minlength="6" maxlength="20" required /></label>
+            <label class="field"><span>Tel&eacute;fono <span class="required-mark" aria-hidden="true">*</span></span><input name="phone" type="tel" minlength="6" maxlength="20" autocomplete="tel" required /></label>
+            <label class="field"><span>Correo electr&oacute;nico <span class="required-mark" aria-hidden="true">*</span></span><input name="email" type="email" minlength="5" maxlength="120" autocomplete="email" required /></label>
+            <label class="field field-wide"><span>Domicilio <span class="required-mark" aria-hidden="true">*</span></span><input name="address" type="text" minlength="3" maxlength="180" autocomplete="street-address" required /></label>
             <label class="check-field field-wide"><input id="isMinor" name="is_minor" type="checkbox" /> El consumidor es menor de edad</label>
-            <label class="field field-wide is-hidden" id="representativeField">Nombre del padre, madre o representante<input name="representative_name" type="text" minlength="3" maxlength="120" /></label>
+            <label class="field field-wide is-hidden" id="representativeField"><span>Nombre del padre, madre o representante <span class="required-mark" aria-hidden="true">*</span></span><input name="representative_name" type="text" minlength="3" maxlength="120" /></label>
           </div>
         </section>
 
         <section class="form-section" aria-labelledby="purchaseTitle">
           <div class="section-heading"><p class="section-number">03</p><h2 id="purchaseTitle">Producto o servicio</h2></div>
           <div class="form-grid">
-            <label class="field">Tipo<select name="item_type" required><option value="Producto">Producto</option><option value="Servicio">Servicio</option></select></label>
-            <label class="field">Monto reclamado (S/)<input name="amount" type="number" min="0" max="999999.99" step="0.01" inputmode="decimal" required /></label>
-            <label class="field field-wide">Descripci&oacute;n del producto o servicio<textarea name="item_description" rows="3" minlength="3" maxlength="500" required></textarea></label>
+            <label class="field"><span>Tipo <span class="required-mark" aria-hidden="true">*</span></span><select name="item_type" required><option value="" selected disabled>Selecciona una opci&oacute;n</option><option value="Producto">Producto</option><option value="Servicio">Servicio</option></select></label>
+            <label class="field"><span>Monto reclamado (S/) <span class="required-mark" aria-hidden="true">*</span></span><input name="amount" type="number" min="0" max="999999.99" step="0.01" inputmode="decimal" required /></label>
+            <label class="field field-wide"><span>Descripci&oacute;n del producto o servicio <span class="required-mark" aria-hidden="true">*</span></span><textarea name="item_description" rows="3" minlength="3" maxlength="500" required></textarea></label>
           </div>
         </section>
 
         <section class="form-section" aria-labelledby="claimTitle">
           <div class="section-heading"><p class="section-number">04</p><h2 id="claimTitle">Detalle de la reclamaci&oacute;n</h2></div>
           <fieldset class="claim-types">
-            <legend>Selecciona una opci&oacute;n</legend>
+            <legend>Selecciona una opci&oacute;n <span class="required-mark" aria-hidden="true">*</span></legend>
             <label><input type="radio" name="claim_type" value="Reclamo" required /><span><strong>Reclamo</strong>Disconformidad relacionada con un producto o servicio.</span></label>
             <label><input type="radio" name="claim_type" value="Queja" required /><span><strong>Queja</strong>Malestar relacionado con la atenci&oacute;n recibida.</span></label>
           </fieldset>
           <div class="form-grid claim-textareas">
-            <label class="field field-wide">Detalle del reclamo o queja<textarea name="detail" rows="5" minlength="3" maxlength="1500" required></textarea></label>
-            <label class="field field-wide">Pedido concreto del consumidor<textarea name="request" rows="4" minlength="3" maxlength="1000" required></textarea></label>
+            <label class="field field-wide"><span>Detalle del reclamo o queja <span class="required-mark" aria-hidden="true">*</span></span><textarea name="detail" rows="5" minlength="3" maxlength="1500" required></textarea></label>
+            <label class="field field-wide"><span>Pedido concreto del consumidor <span class="required-mark" aria-hidden="true">*</span></span><textarea name="request" rows="4" minlength="3" maxlength="1000" required></textarea></label>
           </div>
         </section>
 
         <section class="legal-note">
           <p>La presentaci&oacute;n de este reclamo o queja no impide acudir a otras v&iacute;as de soluci&oacute;n de controversias ni constituye un requisito previo para presentar una denuncia ante el Indecopi.</p>
           <p>MY FIRST BABY responder&aacute; en un plazo m&aacute;ximo de 15 d&iacute;as h&aacute;biles no prorrogables.</p>
-          <label class="check-field"><input name="accepted" type="checkbox" required /> Confirmo que los datos ingresados son correctos.</label>
+          <label class="check-field"><input name="accepted" type="checkbox" required /> Confirmo que los datos ingresados son correctos. <span class="required-mark" aria-hidden="true">*</span></label>
         </section>
 
         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
