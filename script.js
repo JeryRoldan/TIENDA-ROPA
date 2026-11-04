@@ -157,7 +157,7 @@ function renderCart() {
   if (!cart.length) {
     cartItems.innerHTML = '<p class="empty-cart">Tu carrito est&aacute; vac&iacute;o. Agrega un producto para comenzar tu pedido.</p>';
     checkoutButton.classList.add("is-disabled");
-    checkoutButton.href = "https://wa.me/51904226429";
+    checkoutButton.href = "https://wa.me/51969657885";
     return;
   }
   checkoutButton.classList.remove("is-disabled");
@@ -166,7 +166,7 @@ function renderCart() {
     return `<article class="cart-item"><img src="${product.image}" alt="${product.alt}"><div><h3>${product.title}</h3><p>${money(product.price)}</p><div class="quantity-controls"><button type="button" data-action="decrease" data-product="${key}" aria-label="Restar una unidad">&minus;</button><strong>${quantity}</strong><button type="button" data-action="increase" data-product="${key}" aria-label="Sumar una unidad">+</button><button class="remove-item" type="button" data-action="remove" data-product="${key}">Eliminar</button></div></div></article>`;
   }).join("");
   const message = cart.map(({ key, quantity }) => `${quantity} x ${products[key].title} (${money(products[key].price * quantity)})`).join("\n");
-  checkoutButton.href = `https://wa.me/51904226429?text=${encodeURIComponent(`Hola, quiero hacer este pedido:\n${message}\n\nTotal: ${money(total)}`)}`;
+  checkoutButton.href = `https://wa.me/51969657885?text=${encodeURIComponent(`Hola, quiero hacer este pedido:\n${message}\n\nTotal: ${money(total)}`)}`;
 }
 
 function addToCart(productKey) {

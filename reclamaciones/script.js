@@ -110,7 +110,7 @@ form.addEventListener("submit", async (event) => {
     localStorage.setItem(SUBMISSION_COOLDOWN_KEY, String(Date.now()));
     showConfirmation(payload);
   } catch {
-    formStatus.textContent = "No pudimos registrar tu reclamación. Inténtalo nuevamente o comunícate al +51 904 226 429.";
+    formStatus.textContent = "No pudimos registrar tu reclamación. Inténtalo nuevamente o comunícate al +51 969 657 885.";
     submitButton.disabled = false;
     submitButton.textContent = "Enviar reclamación";
   }
