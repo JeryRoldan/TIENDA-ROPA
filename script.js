@@ -51,12 +51,12 @@ function normalized(value) {
 }
 
 const categoriesByProduct = {
-  "Alimentaci\u00f3n": [1, 10, 22, 23, 32, 34, 36, 37, 46, 48, 49, 50, 51, 52, 53, 65, 66, 67, 70],
-  "Lactancia": [3, 6, 7, 8, 28, 31, 56, 57, 58, 59],
-  "Paseo y movilidad": [9, 11, 15, 40, 68],
-  "Ropa y accesorios": [4, 5, 17, 43],
-  "Higiene y cuidado": [21, 27, 42, 44, 45, 47, 61],
-  "Juguetes y estimulaci\u00f3n": [2, 12, 13, 14, 16, 18, 19, 20, 24, 25, 26, 29, 30, 33, 35, 38, 39, 41, 54, 55, 60, 62, 63, 64, 69],
+  "Alimentaci\u00f3n": [1, 10, 22, 23, 32, 34, 36, 37, 46, 50, 51, 52, 53, 65, 66, 67, 70],
+  "Lactancia": [3, 6, 8, 28, 31, 56, 57, 59],
+  "Paseo y movilidad": [7, 9, 11, 15, 35, 40, 68],
+  "Ropa y accesorios": [4, 5, 17, 43, 54, 58],
+  "Higiene y cuidado": [21, 27, 42, 44, 45, 47, 48, 61],
+  "Juguetes y estimulaci\u00f3n": [2, 12, 13, 14, 16, 18, 19, 20, 24, 25, 26, 29, 30, 33, 38, 39, 41, 49, 55, 60, 62, 63, 64, 69, 71],
 };
 
 function productCategory(product) {
@@ -127,11 +127,13 @@ function openModal(productKey) {
   selectedProduct = productKey;
   modalFeatures.innerHTML = "";
 
-  product.features.forEach((feature) => {
-    const item = document.createElement("li");
-    item.textContent = feature;
-    modalFeatures.appendChild(item);
-  });
+  product.features
+    .filter((feature) => !feature.startsWith("Precio referencial:"))
+    .forEach((feature) => {
+      const item = document.createElement("li");
+      item.textContent = feature;
+      modalFeatures.appendChild(item);
+    });
 
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");

@@ -92,14 +92,13 @@ window.catalogProducts = [
   {
     "id": "producto-007",
     "number": 7,
-    "title": "RECOLECTOR PORTATIL DE LECHE MATERNA",
-    "price": 33,
-    "image": "assets/catalogo-1/RECOLECTOR PORTATIL DE LECHE MATERNA.jpg",
-    "alt": "RECOLECTOR PORTATIL DE LECHE MATERNA",
+    "title": "CAMINADOR 3 EN 1",
+    "price": 80,
+    "image": "assets/catalogo-1/CAMINADOR 3 EN 1.png",
+    "alt": "CAMINADOR 3 EN 1",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 7.",
-      "Precio referencial: S/ 20.00.",
       "Presentación y colores sujetos a disponibilidad.",
       "Consulta el stock antes de confirmar tu pedido."
     ]
@@ -122,10 +121,10 @@ window.catalogProducts = [
   {
     "id": "producto-009",
     "number": 9,
-    "title": "CUBIERTA DE COCHE",
-    "price": 14,
-    "image": "assets/catalogo-1/CUBIERTA DE COCHE.jpg",
-    "alt": "CUBIERTA DE COCHE",
+    "title": "CUBIERTA DE COCHE CON CIERRE",
+    "price": 30,
+    "image": "assets/catalogo-1/CUBIERTA DE COCHE NUEVA.png",
+    "alt": "CUBIERTA DE COCHE CON CIERRE",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 9.",
@@ -167,10 +166,10 @@ window.catalogProducts = [
   {
     "id": "producto-012",
     "number": 12,
-    "title": "JALA PITA NUBE",
-    "price": 32,
-    "image": "assets/catalogo-1/JALA PITA NUBE.jpg",
-    "alt": "JALA PITA NUBE",
+    "title": "JALA PITA ERIZO",
+    "price": 37,
+    "image": "assets/catalogo-1/JALA PITA NUBE NUEVA.png",
+    "alt": "JALA PITA ERIZO",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 12.",
@@ -182,14 +181,15 @@ window.catalogProducts = [
   {
     "id": "producto-013",
     "number": 13,
-    "title": "SONAJA ARGOLLA ANIMALITOS",
-    "price": 20,
-    "image": "assets/catalogo-1/SONAJA ARGOLLA ANIMALITOS.jpg",
-    "alt": "SONAJA ARGOLLA ANIMALITOS",
+    "title": "SPINNER SONAJA",
+    "price": 37,
+    "image": "assets/catalogo-1/SET SONAJAS GIRATORIAS ANIMALITOS X3.png",
+    "alt": "SPINNER SONAJA",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 13.",
       "Precio referencial: S/ 20.00.",
+      "Incluye 3 piezas.",
       "Presentación y colores sujetos a disponibilidad.",
       "Consulta el stock antes de confirmar tu pedido."
     ]
@@ -197,10 +197,10 @@ window.catalogProducts = [
   {
     "id": "producto-014",
     "number": 14,
-    "title": "COCODRILO TEXTURA",
-    "price": 47,
-    "image": "assets/catalogo-1/COCODRILO TEXTURA.jpg",
-    "alt": "COCODRILO TEXTURA",
+    "title": "ABEJITA - TEXTURA",
+    "price": 29,
+    "image": "assets/catalogo-1/SONAJAS SENSORIALES ANIMALITOS.png",
+    "alt": "ABEJITA - TEXTURA",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 14.",
@@ -227,10 +227,10 @@ window.catalogProducts = [
   {
     "id": "producto-016",
     "number": 16,
-    "title": "ARCO TORTUGA",
-    "price": 42,
-    "image": "assets/catalogo-1/ARCO TORTUGA.jpg",
-    "alt": "ARCO TORTUGA",
+    "title": "ARCO ASTRONAUTA",
+    "price": 70,
+    "image": "assets/catalogo-1/ARCO MUSICAL ESPACIAL.png",
+    "alt": "ARCO ASTRONAUTA",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 16.",
@@ -272,10 +272,10 @@ window.catalogProducts = [
   {
     "id": "producto-019",
     "number": 19,
-    "title": "MÓVIL PAJARITO CELESTE",
-    "price": 48,
-    "image": "assets/catalogo-1/MÓVIL PAJARITO CELESTE.jpg",
-    "alt": "MÓVIL PAJARITO CELESTE",
+    "title": "MÓVIL OSO - CONTROL REMOTO",
+    "price": 52,
+    "image": "assets/catalogo-1/MOVIL MUSICAL CUNA CONTROL REMOTO.png",
+    "alt": "MÓVIL OSO - CONTROL REMOTO",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 19.",
@@ -287,10 +287,10 @@ window.catalogProducts = [
   {
     "id": "producto-020",
     "number": 20,
-    "title": "LIBRO DE TELA CON SONIDO",
-    "price": 40,
-    "image": "assets/catalogo-1/LIBRO DE TELA CON SONIDO.jpg",
-    "alt": "LIBRO DE TELA CON SONIDO",
+    "title": "LIBRO MUSICAL",
+    "price": 37,
+    "image": "assets/catalogo-1/LIBRO MUSICAL DE TELA ANIMALITOS.png",
+    "alt": "LIBRO MUSICAL",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 20.",
@@ -317,14 +317,16 @@ window.catalogProducts = [
   {
     "id": "producto-022",
     "number": 22,
-    "title": "CHUPÓN CON SUJETADOR OSO",
-    "price": 21,
-    "image": "assets/catalogo-1/CHUPÓN CON SUJETADOR OSO.jpg",
-    "alt": "CHUPÓN CON SUJETADOR OSO",
+    "title": "CHUPÓN CON SUJETADOR",
+    "price": 25,
+    "image": "assets/catalogo-1/CHUPON CON SUJETADOR ANIMALITOS.png",
+    "alt": "CHUPÓN CON SUJETADOR",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 22.",
       "Precio referencial: S/ 15.00.",
+      "Disponible en 4 modelos.",
+      "Incluye sujetador.",
       "Presentación y colores sujetos a disponibilidad.",
       "Consulta el stock antes de confirmar tu pedido."
     ]
@@ -332,14 +334,15 @@ window.catalogProducts = [
   {
     "id": "producto-023",
     "number": 23,
-    "title": "CHUPÓN ENTRETENEDOR - AVENT PHILIPS",
+    "title": "CHUPÓN ENTRETENEDOR AVENT",
     "price": 58,
-    "image": "assets/catalogo-1/CHUPÓN ENTRETENEDOR - AVENT PHILIPS.jpg",
-    "alt": "CHUPÓN ENTRETENEDOR - AVENT PHILIPS",
+    "image": "assets/catalogo-1/CHUPON PHILIPS AVENT SOOTHIE 0-6M X2.png",
+    "alt": "CHUPÓN ENTRETENEDOR AVENT",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 23.",
       "Precio referencial: S/ 15.00.",
+      "Incluye 2 chupones para bebés de 0 a 6 meses.",
       "Presentación y colores sujetos a disponibilidad.",
       "Consulta el stock antes de confirmar tu pedido."
     ]
@@ -362,10 +365,10 @@ window.catalogProducts = [
   {
     "id": "producto-025",
     "number": 25,
-    "title": "LIBRO GRIS-LEÓN, ELEFANTE Y CONEJO",
-    "price": 22,
-    "image": "assets/catalogo-1/LIBRO GRIS-LEÓN, ELEFANTE Y CONEJO.jpg",
-    "alt": "LIBRO GRIS-LEÓN, ELEFANTE Y CONEJO",
+    "title": "LIBRO DIDÁCTICO CONEJA",
+    "price": 55,
+    "image": "assets/catalogo-1/LIBRO SENSORIAL MONTESSORI CONEJITO.png",
+    "alt": "LIBRO DIDÁCTICO CONEJA",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 25.",
@@ -512,10 +515,10 @@ window.catalogProducts = [
   {
     "id": "producto-035",
     "number": 35,
-    "title": "MAQUINA DE RUIDO BLANCO",
-    "price": 32,
-    "image": "assets/catalogo-1/MAQUINA DE RUIDO BLANCO.jpg",
-    "alt": "MAQUINA DE RUIDO BLANCO",
+    "title": "BICICLETA DE EQUILIBRIO",
+    "price": 65,
+    "image": "assets/catalogo-1/BICICLETA DE EQUILIBRIO.png",
+    "alt": "BICICLETA DE EQUILIBRIO",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 35.",
@@ -617,10 +620,10 @@ window.catalogProducts = [
   {
     "id": "producto-042",
     "number": 42,
-    "title": "CAMBIADOR DE PAÑAL CARTERA GRANDE - ÚNICO COLOR",
-    "price": 29,
-    "image": "assets/catalogo-1/CAMBIADOR DE PAÑAL CARTERA GRANDE - ÚNICO COLOR.jpg",
-    "alt": "CAMBIADOR DE PAÑAL CARTERA GRANDE - ÚNICO COLOR",
+    "title": "CALENTADOR DE PAÑITOS",
+    "price": 38,
+    "image": "assets/catalogo-1/CALENTADOR DE PANITOS.png",
+    "alt": "CALENTADOR DE PAÑITOS",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 42.",
@@ -707,10 +710,10 @@ window.catalogProducts = [
   {
     "id": "producto-048",
     "number": 48,
-    "title": "CEPILLO DE BIBERÓN SANTOLE",
-    "price": 11,
-    "image": "assets/catalogo-1/CEPILLO DE BIBERÓN SANTOLE.jpg",
-    "alt": "CEPILLO DE BIBERÓN SANTOLE",
+    "title": "GORRA DE DUCHA",
+    "price": 7,
+    "image": "assets/catalogo-1/GORRA DE DUCHA.png",
+    "alt": "GORRA DE DUCHA",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 48.",
@@ -722,10 +725,10 @@ window.catalogProducts = [
   {
     "id": "producto-049",
     "number": 49,
-    "title": "CEPILLO DE BIBERÓN - DINO",
-    "price": 18,
-    "image": "assets/catalogo-1/CEPILLO DE BIBERÓN - DINO.jpg",
-    "alt": "CEPILLO DE BIBERÓN - DINO",
+    "title": "LIGAS ELEFANTE SPINER",
+    "price": 45,
+    "image": "assets/catalogo-1/LIGAS ELEFANTE SPINER.png",
+    "alt": "LIGAS ELEFANTE SPINER",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 49.",
@@ -797,10 +800,10 @@ window.catalogProducts = [
   {
     "id": "producto-054",
     "number": 54,
-    "title": "MÓVIL CUNA - ELEFANTE",
-    "price": 48,
-    "image": "assets/catalogo-1/MÓVIL CUNA - ELEFANTE.jpeg",
-    "alt": "MÓVIL CUNA - ELEFANTE",
+    "title": "MANTA PARA BEBÉ",
+    "price": 38,
+    "image": "assets/catalogo-1/MANTA PARA BEBE.png",
+    "alt": "MANTA PARA BEBÉ",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 54.",
@@ -857,10 +860,10 @@ window.catalogProducts = [
   {
     "id": "producto-058",
     "number": 58,
-    "title": "BOLSAS RECOLECTORA",
-    "price": 25,
-    "image": "assets/catalogo-1/BOLSAS RECOLECTORA.jpeg",
-    "alt": "BOLSAS RECOLECTORA",
+    "title": "FAJA POST PARTO",
+    "price": 38,
+    "image": "assets/catalogo-1/FAJA POST PARTO.png",
+    "alt": "FAJA POST PARTO",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 58.",
@@ -887,10 +890,10 @@ window.catalogProducts = [
   {
     "id": "producto-060",
     "number": 60,
-    "title": "CUBO ESPEJO - CANGREJO",
-    "price": 28,
-    "image": "assets/catalogo-1/CUBO ESPEJO - CANGREJO.jpeg",
-    "alt": "CUBO ESPEJO - CANGREJO",
+    "title": "CUBO DE TELA ORIFICIO",
+    "price": 37,
+    "image": "assets/catalogo-1/CUBO DE TELA ORIFICIO.png",
+    "alt": "CUBO DE TELA ORIFICIO",
     "description": "Producto disponible en el catálogo MY FIRST BABY.",
     "features": [
       "Código de catálogo: 60.",
@@ -1045,6 +1048,21 @@ window.catalogProducts = [
     "features": [
       "Código de catálogo: 70.",
       "Precio referencial: S/ 8.00.",
+      "Presentación y colores sujetos a disponibilidad.",
+      "Consulta el stock antes de confirmar tu pedido."
+    ]
+  },
+  {
+    "id": "producto-071",
+    "number": 71,
+    "title": "LECTOR EDUCATIVO DE TARJETAS",
+    "price": 28,
+    "image": "assets/catalogo-1/LECTOR EDUCATIVO DE TARJETAS.png",
+    "alt": "LECTOR EDUCATIVO DE TARJETAS",
+    "description": "Producto disponible en el catálogo MY FIRST BABY.",
+    "features": [
+      "Código de catálogo: 71.",
+      "Incluye lector y tarjetas educativas.",
       "Presentación y colores sujetos a disponibilidad.",
       "Consulta el stock antes de confirmar tu pedido."
     ]
