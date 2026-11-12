@@ -1066,5 +1066,20 @@ window.catalogProducts = [
       "Presentación y colores sujetos a disponibilidad.",
       "Consulta el stock antes de confirmar tu pedido."
     ]
+  },
+  {
+    "id": "producto-072",
+    "number": 72,
+    "title": "ESCURRIDOR DE BIBERÓN CON TAPA",
+    "price": 40,
+    "image": "assets/catalogo-1/ESCURRIDOR DE BIBERON CON TAPA.png",
+    "alt": "Escurridor de biberón con tapa en colores verde y rosado",
+    "description": "Escurridor de biberón con tapa protectora y asa para transporte.",
+    "features": [
+      "Código de catálogo: 72.",
+      "Diseño cerrado para proteger biberones y accesorios.",
+      "Presentación y colores sujetos a disponibilidad.",
+      "Consulta el stock antes de confirmar tu pedido."
+    ]
   }
 ];

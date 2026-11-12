@@ -51,7 +51,7 @@ function normalized(value) {
 }
 
 const categoriesByProduct = {
-  "Alimentaci\u00f3n": [1, 10, 22, 23, 32, 34, 36, 37, 46, 50, 51, 52, 53, 65, 66, 67, 70],
+  "Alimentaci\u00f3n": [1, 10, 22, 23, 32, 34, 36, 37, 46, 50, 51, 52, 53, 65, 66, 67, 70, 72],
   "Lactancia": [3, 6, 8, 28, 31, 56, 57, 59],
   "Paseo y movilidad": [7, 9, 11, 15, 35, 40, 68],
   "Ropa y accesorios": [4, 5, 17, 43, 54, 58],
@@ -159,7 +159,7 @@ function renderCart() {
   if (!cart.length) {
     cartItems.innerHTML = '<p class="empty-cart">Tu carrito est&aacute; vac&iacute;o. Agrega un producto para comenzar tu pedido.</p>';
     checkoutButton.classList.add("is-disabled");
-    checkoutButton.href = "https://wa.me/51969657885";
+    checkoutButton.href = "https://wa.me/51997530694";
     return;
   }
   checkoutButton.classList.remove("is-disabled");
@@ -168,7 +168,7 @@ function renderCart() {
     return `<article class="cart-item"><img src="${product.image}" alt="${product.alt}"><div><h3>${product.title}</h3><p>${money(product.price)}</p><div class="quantity-controls"><button type="button" data-action="decrease" data-product="${key}" aria-label="Restar una unidad">&minus;</button><strong>${quantity}</strong><button type="button" data-action="increase" data-product="${key}" aria-label="Sumar una unidad">+</button><button class="remove-item" type="button" data-action="remove" data-product="${key}">Eliminar</button></div></div></article>`;
   }).join("");
   const message = cart.map(({ key, quantity }) => `${quantity} x ${products[key].title} (${money(products[key].price * quantity)})`).join("\n");
-  checkoutButton.href = `https://wa.me/51969657885?text=${encodeURIComponent(`Hola, quiero hacer este pedido:\n${message}\n\nTotal: ${money(total)}`)}`;
+  checkoutButton.href = `https://wa.me/51997530694?text=${encodeURIComponent(`Hola, quiero hacer este pedido:\n${message}\n\nTotal: ${money(total)}`)}`;
 }
 
 function addToCart(productKey) {
