@@ -963,21 +963,6 @@ window.catalogProducts = [
     ]
   },
   {
-    "id": "producto-065",
-    "number": 65,
-    "title": "BOLSAS PRA FORMULA x10",
-    "price": 18,
-    "image": "assets/catalogo-1/BOLSAS PRA FORMULA x10.jpeg",
-    "alt": "BOLSAS PRA FORMULA x10",
-    "description": "Producto disponible en el catálogo MY FIRST BABY.",
-    "features": [
-      "Código de catálogo: 65.",
-      "Precio referencial: S/ 16.00.",
-      "Presentación y colores sujetos a disponibilidad.",
-      "Consulta el stock antes de confirmar tu pedido."
-    ]
-  },
-  {
     "id": "producto-066",
     "number": 66,
     "title": "BOLSA TÉRMICA PARA BIBERÓN",

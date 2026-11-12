@@ -51,7 +51,7 @@ function normalized(value) {
 }
 
 const categoriesByProduct = {
-  "Alimentaci\u00f3n": [1, 10, 22, 23, 32, 34, 36, 37, 46, 50, 51, 52, 53, 65, 66, 67, 70, 72],
+  "Alimentaci\u00f3n": [1, 10, 22, 23, 32, 34, 36, 37, 46, 50, 51, 52, 53, 66, 67, 70, 72],
   "Lactancia": [3, 6, 8, 28, 31, 56, 57, 59, 73],
   "Paseo y movilidad": [7, 9, 11, 15, 35, 40, 68],
   "Ropa y accesorios": [4, 5, 17, 43, 54, 58],
