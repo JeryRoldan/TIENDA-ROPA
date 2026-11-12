@@ -1081,5 +1081,20 @@ window.catalogProducts = [
       "Presentación y colores sujetos a disponibilidad.",
       "Consulta el stock antes de confirmar tu pedido."
     ]
+  },
+  {
+    "id": "producto-073",
+    "number": 73,
+    "title": "EXTRACTOR DE LECHE MANUAL",
+    "price": 48,
+    "image": "assets/catalogo-1/EXTRACTOR DE LECHE MANUAL.png",
+    "alt": "Extractor de leche manual con biberón transparente",
+    "description": "Extractor de leche manual práctico, cómodo y fácil de limpiar.",
+    "features": [
+      "Código de catálogo: 73.",
+      "Material libre de BPA.",
+      "Presentación y colores sujetos a disponibilidad.",
+      "Consulta el stock antes de confirmar tu pedido."
+    ]
   }
 ];
